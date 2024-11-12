@@ -14,10 +14,8 @@ from langchain_core.runnables import RunnablePassthrough, RunnableParallel
 from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_core.output_parsers import StrOutputParser
-
 from dotenv import load_dotenv
 import os
-
 
 # API KEY 정보로드
 load_dotenv()
