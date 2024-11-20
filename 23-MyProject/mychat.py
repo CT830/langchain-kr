@@ -7,6 +7,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_teddynote.prompts import load_prompt
 from langchain_teddynote import logging
+from langchain_ollama import ChatOllama
 from langchain.vectorstores import FAISS
 from langchain_core.runnables import RunnablePassthrough
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
@@ -67,7 +68,8 @@ def create_chain(retriever, model_name="gpt-4o"):
 
     prompt = load_prompt("./prompts/my-rag.yaml", encoding="utf-8")
 
-    llm = ChatOpenAI(model_name=model_name, temperature=0)
+    llm = ChatOllama(model="EEVE-Korean-Instruct-10.8B-v1.0-Q4_1")
+    #llm = ChatOpenAI(model_name=model_name, temperature=0)
 
     chain = (
         {"context": retriever, "question": RunnablePassthrough()}
